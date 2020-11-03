@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.newsapp.NewsApplication;
 import com.example.newsapp.R;
 import com.example.newsapp.api.models.NewsModel;
 import com.example.newsapp.repo.NewsRepository;
@@ -28,7 +29,9 @@ public class NewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news);
 
 
-        viewModel = new NewsViewModel(new NewsRepository());
+        viewModel = new NewsViewModel(new NewsRepository(
+                ((NewsApplication) getApplication()).getNewsNetworkingService()
+        ));
 
         viewModel.onCreate();
         mAdapter = new MyAdapter();

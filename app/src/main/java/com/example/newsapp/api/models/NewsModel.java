@@ -1,27 +1,18 @@
 package com.example.newsapp.api.models;
 
-public class NewsModel {
-    private String title;
-    private String subtitle;
+import com.google.gson.annotations.SerializedName;
 
-    public NewsModel(String title, String subtitle) {
-        this.title = title;
-        this.subtitle = subtitle;
+public class NewsModel {
+    @SerializedName("author")
+    private String author;
+    @SerializedName("title")
+    private String title;
+
+    public String getAuthor() {
+        return author;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
     }
 }
