@@ -10,14 +10,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.newsapp.R;
 import com.example.newsapp.api.models.NewsModel;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private List<NewsModel> news;
 
-    public MyAdapter(List<NewsModel> news) {
+    public MyAdapter() {
+        news = new LinkedList<>();
+    }
+
+    public void setNews(List<NewsModel> news) {
         this.news = news;
+        notifyDataSetChanged();
     }
 
     @Override
